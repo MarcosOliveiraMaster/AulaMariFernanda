@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Master Educação - Questões de Matemática</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f0f8ff;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 3px solid #4e7ae6;
+        }
+        
+        h1 {
+            color: #2c3e50;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        
+        h2 {
+            color: #4e7ae6;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+        
+        .student-name {
+            color: #e74c3c;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .instructions {
+            background-color: #e8f4fc;
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            border-left: 5px solid #3498db;
+        }
+        
+        .section {
+            margin-bottom: 30px;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: #f9f9f9;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+            border-bottom: 2px solid #4e7ae6;
+        }
+        
+        .question {
+            margin-bottom: 20px;
+            padding: 15px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+            transition: transform 0.2s;
+        }
+        
+        .question:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .question-number {
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            background-color: #4e7ae6;
+            color: white;
+            text-align: center;
+            line-height: 30px;
+            border-radius: 50%;
+            margin-right: 10px;
+            font-weight: bold;
+        }
+        
+        .question-text {
+            display: inline;
+            font-size: 1.1rem;
+        }
+        
+        .operations {
+            background-color: #e8f6f3;
+            border-left: 5px solid #1abc9c;
+        }
+        
+        .equations {
+            background-color: #fef9e7;
+            border-left: 5px solid #f1c40f;
+        }
+        
+        .diverse {
+            background-color: #f4ecf7;
+            border-left: 5px solid #9b59b6;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 600px) {
+            .container {
+                padding: 15px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            h2 {
+                font-size: 1.5rem;
+            }
+            
+            .question {
+                padding: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Master Educação</h1>
+            <h2>Questões de matemática para revisão: <span class="student-name">Maria Fernanda</span></h2>
+        </header>
+        
+        <div class="instructions">
+            <p><strong>Instruções:</strong> Esta lista contém 30 questões objetivas de matemática. Resolva cada questão com atenção e registre suas respostas em um local separado.</p>
+        </div>
+        
+        <div class="section operations">
+            <h3 class="section-title">Questões 1 a 10: Operações com números inteiros</h3>
+            
+            <div class="question">
+                <span class="question-number">1</span>
+                <span class="question-text">O resultado de (-5) + (-3) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">2</span>
+                <span class="question-text">O resultado de (+10) - (-4) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">3</span>
+                <span class="question-text">O resultado de (-7) · (-6) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">4</span>
+                <span class="question-text">O resultado de (-45) ÷ (+9) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">5</span>
+                <span class="question-text">O resultado de (-12) + (+20) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">6</span>
+                <span class="question-text">O resultado de (+18) ÷ (-3) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">7</span>
+                <span class="question-text">O resultado de (-2) · (+11) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">8</span>
+                <span class="question-text">O resultado de 0 - (-15) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">9</span>
+                <span class="question-text">O resultado de (-8) · (-1) · (+2) é:</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">10</span>
+                <span class="question-text">O resultado de (+30) ÷ (-5) ÷ (-2) é:</span>
+            </div>
+        </div>
+        
+        <div class="section equations">
+            <h3 class="section-title">Questões 11 a 20: Equações do 2º Grau. Quais são as raízes da equação?</h3>
+            
+            <div class="question">
+                <span class="question-number">11</span>
+                <span class="question-text">x² - 5x + 6 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">12</span>
+                <span class="question-text">x² + 2x - 3 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">13</span>
+                <span class="question-text">x² - 9 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">14</span>
+                <span class="question-text">x² - 6x = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">15</span>
+                <span class="question-text">x² + 8x + 16 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">16</span>
+                <span class="question-text">2x² - 8x = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">17</span>
+                <span class="question-text">x² - x - 12 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">18</span>
+                <span class="question-text">x² + 6x + 9 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">19</span>
+                <span class="question-text">x² - 3x - 10 = 0</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">20</span>
+                <span class="question-text">x² + 4x - 5 = 0</span>
+            </div>
+        </div>
+        
+        <div class="section diverse">
+            <h3 class="section-title">Questões 21 a 30: Tópicos diversos</h3>
+            
+            <div class="question">
+                <span class="question-number">21</span>
+                <span class="question-text">Na equação x² - 7x + 10 = 0, qual é o valor da <strong>soma</strong> de suas raízes?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">22</span>
+                <span class="question-text">Na equação x² - 5x + 6 = 0, qual é o valor do <strong>produto</strong> de suas raízes?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">23</span>
+                <span class="question-text">A área de um retângulo é 40 m². Se o comprimento é 2 metros maior que a largura, qual é a equação que representa a <strong>largura</strong> `x` deste retângulo? (Forme a equação na variável `x`).</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">24</span>
+                <span class="question-text">O número de diagonais `d` de um polígono é dado pela fórmula `d = (n² - 3n)/2`. Se um polígono tem 20 diagonais, qual equação do 2º grau, na variável `n`, representa essa situação? (Forme a equação).</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">25</span>
+                <span class="question-text">Qual é o valor de √18 - 2√2?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">26</span>
+                <span class="question-text">Qual é o valor de (√3 + √2) · (√3 - √2)?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">27</span>
+                <span class="question-text">Quais são as raízes da equação x² - 2√2 x = 0?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">28</span>
+                <span class="question-text">Qual é o valor de √(3² + 4²)?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">29</span>
+                <span class="question-text">Quais são as raízes da equação x² - 5x + 4 = 0?</span>
+            </div>
+            
+            <div class="question">
+                <span class="question-number">30</span>
+                <span class="question-text">Simplifique a expressão: (√12 + √27) / √3.</span>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Master Educação © 2025 - Lista de Revisão de Matemática</p>
+        </footer>
+    </div>
+</body>
+</html>
