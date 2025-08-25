@@ -3,147 +3,233 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Master Educação - Questões de Matemática</title>
+    <title>Aulas da Maria Isabel!</title>
     <style>
+        :root {
+            --azul-primario: #4A6FA5;
+            --azul-secundario: #6B9ACA;
+            --lilas-primario: #9B7EDE;
+            --lilas-secundario: #C5B4E3;
+            --lilas-claro: #E6E0F8;
+            --branco: #FFFFFF;
+            --cinza-claro: #F5F5F5;
+            --texto-escuro: #333333;
+        }
+        
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
         }
         
         body {
-            background-color: #f0f8ff;
-            color: #333;
+            background-color: var(--cinza-claro);
+            color: var(--texto-escuro);
             line-height: 1.6;
             padding: 20px;
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 0 auto;
-            background-color: white;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            background-color: var(--branco);
+            border-radius: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
         }
         
         header {
+            background: linear-gradient(135deg, var(--azul-primario), var(--lilas-primario));
+            color: white;
             text-align: center;
-            margin-bottom: 30px;
-            padding-bottom: 20px;
-            border-bottom: 3px solid #4e7ae6;
+            padding: 30px 20px;
+            border-bottom: 5px solid var(--lilas-secundario);
         }
         
         h1 {
-            color: #2c3e50;
             font-size: 2.5rem;
             margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
         
-        h2 {
-            color: #4e7ae6;
-            font-size: 1.8rem;
-            margin-bottom: 20px;
-        }
-        
-        .student-name {
-            color: #e74c3c;
-            font-weight: bold;
+        .subtitle {
             font-size: 1.2rem;
+            opacity: 0.9;
         }
         
-        .instructions {
-            background-color: #e8f4fc;
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 25px;
-            border-left: 5px solid #3498db;
-        }
-        
-        .section {
-            margin-bottom: 30px;
+        .conteudo {
             padding: 20px;
-            border-radius: 10px;
-            background-color: #f9f9f9;
         }
         
-        .section-title {
-            color: #2c3e50;
+        .topico {
+            background-color: var(--lilas-claro);
+            border-radius: 15px;
+            margin-bottom: 25px;
+            padding: 20px;
+            border-left: 5px solid var(--lilas-primario);
+        }
+        
+        .topico-titulo {
+            color: var(--azul-primario);
             margin-bottom: 15px;
-            padding-bottom: 5px;
-            border-bottom: 2px solid #4e7ae6;
+            font-size: 1.8rem;
         }
         
-        .question {
-            margin-bottom: 20px;
+        .explicacao-simplificada {
+            background-color: var(--branco);
             padding: 15px;
-            background-color: white;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
-            transition: transform 0.2s;
-        }
-        
-        .question:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        
-        .question-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-color: #4e7ae6;
-            color: white;
-            text-align: center;
-            line-height: 30px;
-            border-radius: 50%;
-            margin-right: 10px;
-            font-weight: bold;
-        }
-        
-        .question-text {
-            display: inline;
+            border-radius: 10px;
+            margin-bottom: 15px;
             font-size: 1.1rem;
         }
         
-        .operations {
-            background-color: #e8f6f3;
-            border-left: 5px solid #1abc9c;
+        .explicacao-detalhada {
+            background-color: var(--branco);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
         }
         
-        .equations {
-            background-color: #fef9e7;
-            border-left: 5px solid #f1c40f;
+        .explicacao-detalhada h4 {
+            color: var(--lilas-primario);
+            margin: 10px 0 5px;
         }
         
-        .diverse {
-            background-color: #f4ecf7;
-            border-left: 5px solid #9b59b6;
+        .regras-gramaticais {
+            background-color: var(--branco);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .regras-gramaticais h4 {
+            color: var(--azul-primario);
+            margin: 10px 0 5px;
+        }
+        
+        .exemplos {
+            background-color: var(--branco);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .exemplos h4 {
+            color: var(--lilas-primario);
+            margin-bottom: 10px;
+        }
+        
+        .exemplos-lista {
+            list-style-type: none;
+        }
+        
+        .exemplos-lista li {
+            padding: 8px;
+            margin-bottom: 5px;
+            background-color: var(--lilas-claro);
+            border-radius: 8px;
+        }
+        
+        .atividades {
+            margin-top: 20px;
+        }
+        
+        .atividade-titulo {
+            color: var(--azul-primario);
+            margin-bottom: 15px;
+            font-size: 1.4rem;
+        }
+        
+        .questao {
+            background-color: var(--branco);
+            padding: 15px;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            border: 2px solid var(--lilas-secundario);
+        }
+        
+        .pergunta {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .opcoes {
+            list-style-type: none;
+            margin: 10px 0;
+        }
+        
+        .opcoes li {
+            padding: 10px;
+            margin-bottom: 8px;
+            background-color: var(--lilas-claro);
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        
+        .opcoes li:hover {
+            background-color: var(--lilas-secundario);
+        }
+        
+        .resposta-btn {
+            background-color: var(--azul-primario);
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+        
+        .resposta-btn:hover {
+            background-color: var(--azul-secundario);
+        }
+        
+        .resposta {
+            margin-top: 10px;
+            padding: 10px;
+            border-radius: 8px;
+            display: none;
+        }
+        
+        .correta {
+            background-color: #D4EDDA;
+            color: #155724;
+            border: 1px solid #C3E6CB;
+        }
+        
+        .incorreta {
+            background-color: #F8D7DA;
+            color: #721C24;
+            border: 1px solid #F5C6CB;
+        }
+        
+        .feedback {
+            font-weight: bold;
+            margin-top: 10px;
         }
         
         footer {
             text-align: center;
+            padding: 20px;
+            background: linear-gradient(135deg, var(--azul-primario), var(--lilas-primario));
+            color: white;
             margin-top: 30px;
-            color: #7f8c8d;
-            font-size: 0.9rem;
         }
         
-        @media (max-width: 600px) {
+        @media (max-width: 768px) {
             .container {
-                padding: 15px;
+                border-radius: 0;
             }
             
             h1 {
                 font-size: 2rem;
             }
             
-            h2 {
+            .topico-titulo {
                 font-size: 1.5rem;
-            }
-            
-            .question {
-                padding: 10px;
             }
         }
     </style>
@@ -151,179 +237,352 @@
 <body>
     <div class="container">
         <header>
-            <h1>Master Educação</h1>
-            <h2>Questões de matemática para revisão: <span class="student-name">Maria Fernanda</span></h2>
+            <h1>Aulas da Maria Isabel!</h1>
+            <p class="subtitle">Aprenda Português de forma divertida!</p>
         </header>
         
-        <div class="instructions">
-            <p><strong>Instruções:</strong> Esta lista contém 30 questões objetivas de matemática. Resolva cada questão com atenção e registre suas respostas em um local separado.</p>
-        </div>
-        
-        <div class="section operations">
-            <h3 class="section-title">Questões 1 a 10: Operações com números inteiros</h3>
-            
-            <div class="question">
-                <span class="question-number">1</span>
-                <span class="question-text">O resultado de (-5) + (-3) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">2</span>
-                <span class="question-text">O resultado de (+10) - (-4) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">3</span>
-                <span class="question-text">O resultado de (-7) · (-6) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">4</span>
-                <span class="question-text">O resultado de (-45) ÷ (+9) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">5</span>
-                <span class="question-text">O resultado de (-12) + (+20) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">6</span>
-                <span class="question-text">O resultado de (+18) ÷ (-3) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">7</span>
-                <span class="question-text">O resultado de (-2) · (+11) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">8</span>
-                <span class="question-text">O resultado de 0 - (-15) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">9</span>
-                <span class="question-text">O resultado de (-8) · (-1) · (+2) é:</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">10</span>
-                <span class="question-text">O resultado de (+30) ÷ (-5) ÷ (-2) é:</span>
-            </div>
-        </div>
-        
-        <div class="section equations">
-            <h3 class="section-title">Questões 11 a 20: Equações do 2º Grau. Quais são as raízes da equação?</h3>
-            
-            <div class="question">
-                <span class="question-number">11</span>
-                <span class="question-text">x² - 5x + 6 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">12</span>
-                <span class="question-text">x² + 2x - 3 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">13</span>
-                <span class="question-text">x² - 9 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">14</span>
-                <span class="question-text">x² - 6x = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">15</span>
-                <span class="question-text">x² + 8x + 16 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">16</span>
-                <span class="question-text">2x² - 8x = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">17</span>
-                <span class="question-text">x² - x - 12 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">18</span>
-                <span class="question-text">x² + 6x + 9 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">19</span>
-                <span class="question-text">x² - 3x - 10 = 0</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">20</span>
-                <span class="question-text">x² + 4x - 5 = 0</span>
-            </div>
-        </div>
-        
-        <div class="section diverse">
-            <h3 class="section-title">Questões 21 a 30: Tópicos diversos</h3>
-            
-            <div class="question">
-                <span class="question-number">21</span>
-                <span class="question-text">Na equação x² - 7x + 10 = 0, qual é o valor da <strong>soma</strong> de suas raízes?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">22</span>
-                <span class="question-text">Na equação x² - 5x + 6 = 0, qual é o valor do <strong>produto</strong> de suas raízes?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">23</span>
-                <span class="question-text">A área de um retângulo é 40 m². Se o comprimento é 2 metros maior que a largura, qual é a equação que representa a <strong>largura</strong> `x` deste retângulo? (Forme a equação na variável `x`).</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">24</span>
-                <span class="question-text">O número de diagonais `d` de um polígono é dado pela fórmula `d = (n² - 3n)/2`. Se um polígono tem 20 diagonais, qual equação do 2º grau, na variável `n`, representa essa situação? (Forme a equação).</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">25</span>
-                <span class="question-text">Qual é o valor de √18 - 2√2?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">26</span>
-                <span class="question-text">Qual é o valor de (√3 + √2) · (√3 - √2)?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">27</span>
-                <span class="question-text">Quais são as raízes da equação x² - 2√2 x = 0?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">28</span>
-                <span class="question-text">Qual é o valor de √(3² + 4²)?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">29</span>
-                <span class="question-text">Quais são as raízes da equação x² - 5x + 4 = 0?</span>
-            </div>
-            
-            <div class="question">
-                <span class="question-number">30</span>
-                <span class="question-text">Simplifique a expressão: (√12 + √27) / √3.</span>
-            </div>
+        <div class="conteudo" id="conteudo">
+            <!-- O conteúdo será inserido aqui pelo JavaScript -->
         </div>
         
         <footer>
-            <p>Master Educação © 2025 - Lista de Revisão de Matemática</p>
+            <p>© 2023 Aulas da Maria Isabel - Todos os direitos reservados</p>
         </footer>
     </div>
+
+    <script>
+        // Dados do JSON
+        const dadosAula = {
+            "conteudos": [
+                {
+                    "titulo": "Modos Verbais (Imperativo, Subjuntivo, Indicativo)",
+                    "explicacao_simplificada": "Indicativo: fatos reais; Subjuntivo: hipóteses, desejos, dúvidas; Imperativo: ordens, pedidos, conselhos.",
+                    "explicacao_detalhada": {
+                        "indicativo": "Expressa ações reais, concretas, seguras. Exemplo: 'Eu estudo todos os dias.'",
+                        "subjuntivo": "Expressa desejo, dúvida, condição ou possibilidade. Usado após expressões como 'espero que', 'talvez', 'se'. Exemplo: 'Se eu estudasse mais, teria melhores notas.'",
+                        "imperativo": "Expressa ordem, pedido, conselho ou convite. Pode ser afirmativo (Faça!) ou negativo (Não faça!). Não possui primeira pessoa do singular (eu)."
+                    },
+                    "regras_gramaticais": {
+                        "imperativo_afirmativo": "Formado a partir do presente do indicativo (tu/vós) e subjuntivo (você/ vocês/nós). Ex: (tu) fala!, (você) fale!, (nós) falemos!",
+                        "imperativo_negativo": "Sempre formado a partir do presente do subjuntivo. Ex: (tu) não fales!, (você) não fale!, (nós) não falemos!",
+                        "subjuntivo": "Usado para expressar incerteza, desejo ou hipótese. Aparece frequentemente em orações iniciadas por 'que', 'se', 'quando', 'espero que', 'talvez'."
+                    },
+                    "exemplos": [
+                        "Imperativo afirmativo: Estude! / Venham aqui!",
+                        "Imperativo negativo: Não saiam! / Não fale alto!",
+                        "Subjuntivo: Espero que você venha. / Se eu pudesse, ajudaria.",
+                        "Indicativo: Ele estuda muito. / Nós vamos ao cinema."
+                    ],
+                    "atividades_simples": [
+                        {
+                            "pergunta": "Classifique o modo verbal: 'Maria viajará amanhã.'",
+                            "resposta": "Indicativo"
+                        },
+                        {
+                            "pergunta": "Classifique o modo verbal: 'Espero que ele estude mais.'",
+                            "resposta": "Subjuntivo"
+                        },
+                        {
+                            "pergunta": "Classifique o modo verbal: 'Estude para a prova!'",
+                            "resposta": "Imperativo"
+                        }
+                    ],
+                    "questoes_multipla_escolha": [
+                        {
+                            "pergunta": "Qual modo verbal é usado para expressar uma ordem direta?",
+                            "opcoes": ["Indicativo", "Subjuntivo", "Imperativo", "Gerúndio"],
+                            "resposta": 2
+                        },
+                        {
+                            "pergunta": "Em qual frase o verbo está no subjuntivo?",
+                            "opcoes": ["Eu estudo muito.", "Estude agora!", "Talvez eu estude mais.", "Eu estudarei amanhã."],
+                            "resposta": 2
+                        },
+                        {
+                            "pergunta": "O modo indicativo é utilizado para expressar:",
+                            "opcoes": ["Desejos e hipóteses", "Ordens e comandos", "Fatos reais e certezas", "Proibições"],
+                            "resposta": 2
+                        }
+                    ],
+                    "atividades_interpretacao": [
+                        {
+                            "pergunta": "Leia: 'Se todos colaborassem, o problema estaria resolvido.' Qual é o modo verbal usado e por que ele foi escolhido?",
+                            "resposta": "Subjuntivo, porque expressa uma hipótese ou condição não realizada."
+                        },
+                        {
+                            "pergunta": "Leia: 'O aluno deve entregar o trabalho até sexta.' O verbo 'deve' está em qual modo verbal? Justifique sua resposta.",
+                            "resposta": "Indicativo, porque expressa uma obrigação real e factual."
+                        },
+                        {
+                            "pergunta": "Leia: 'Não se atrasem para a aula!' O verbo está em qual modo? Explique o efeito de sentido criado pela forma negativa do imperativo.",
+                            "resposta": "Imperativo negativo. A forma negativa cria uma proibição ou advertência, em vez de uma ordem positiva."
+                        },
+                        {
+                            "pergunta": "Compare estas duas frases: 'Venha aqui!' e 'Espero que você venha aqui.'. Por que o modo verbal muda mesmo o verbo sendo o mesmo?",
+                            "resposta": "Na primeira, há uma ordem direta (imperativo). Na segunda, há um desejo ou expectativa (subjuntivo), mostrando maior polidez e incerteza."
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Imperativo afirmativo e negativo",
+                    "explicacao_simplificada": "Imperativo afirmativo: ordens, conselhos ou convites (Ex.: 'Estude mais!'). Imperativo negativo: proibições ou recomendações de não fazer algo (Ex.: 'Não fale alto!').",
+                    "explicacao_detalhada": {
+                        "imperativo_afirmativo": "Usado para dar comandos, instruções, convites ou conselhos de forma direta. Forma-se de maneira diferente para cada pessoa: tu (usa forma do indicativo), você/nós/vocês (usa forma do subjuntivo).",
+                        "imperativo_negativo": "Usado para proibir, dissuadir ou advertir. Sempre formado a partir do presente do subjuntivo para todas as pessoas, precedido de 'não'."
+                    },
+                    "regras_gramaticais": {
+                        "afirmativo_tu": "Retira-se a -s do presente do indicativo: tu andas → Anda!",
+                        "afirmativo_você": "Usa-se presente do subjuntivo: que você ande → Ande!",
+                        "afirmativo_nós": "Usa-se presente do subjuntivo: que nós andemos → Andemos!",
+                        "negativo_geral": "Todas as pessoas usam presente do subjuntivo: não andes, não ande, não andemos"
+                    },
+                    "exemplos": [
+                        "Afirmativo: (tu) Fala baixo! / (você) Faça silêncio!",
+                        "Negativo: (tu) Não fales alto! / (você) Não faça barulho!",
+                        "Afirmativo: (nós) Vamos estudar! / (vocês) Venham já!",
+                        "Negativo: (nós) Não vamos embora! / (vocês) Não venham tarde!"
+                    ],
+                    "atividades_simples": [
+                        {
+                            "pergunta": "Transforme em imperativo afirmativo: 'Você deve estudar.'",
+                            "resposta": "Estude!"
+                        },
+                        {
+                            "pergunta": "Transforme em imperativo negativo: 'Você deve correr.'",
+                            "resposta": "Não corra!"
+                        },
+                        {
+                            "pergunta": "Reescreva no imperativo afirmativo: 'Você precisa escutar.'",
+                            "resposta": "Escute!"
+                        }
+                    ],
+                    "questoes_multipla_escolha": [
+                        {
+                            "pergunta": "Como se forma o imperativo negativo para a 2ª pessoa do singular (tu)?",
+                            "opcoes": ["Com o presente do indicativo", "Com o infinitivo do verbo", "Com o presente do subjuntivo", "Com o pretérito perfeito"],
+                            "resposta": 2
+                        },
+                        {
+                            "pergunta": "Qual frase está no imperativo afirmativo?",
+                            "opcoes": ["Não saia agora.", "Talvez eu saia.", "Saia imediatamente!", "Eu sairei mais tarde."],
+                            "resposta": 2
+                        },
+                        {
+                            "pergunta": "Qual a diferença principal entre imperativo afirmativo e negativo?",
+                            "opcoes": ["O tempo verbal", "A pessoa gramatical", "A afirmação versus negação do comando", "A regência verbal"],
+                            "resposta": 2
+                        }
+                    ],
+                    "atividades_interpretacao": [
+                        {
+                            "pergunta": "Leia: 'Não deixem lixo na praia.' Essa frase é imperativo afirmativo ou negativo? Que tipo de atitude social ela busca promover?",
+                            "resposta": "Negativo. Busca promover consciência ambiental e cidadania."
+                        },
+                        {
+                            "pergunta": "Leia: 'Respeitem os professores.' Qual o tipo de imperativo? Reescreva essa frase na forma negativa mantendo o mesmo sentido.",
+                            "resposta": "Afirmativo. Forma negativa: 'Não desrespeitem os professores.'"
+                        },
+                        {
+                            "pergunta": "Leia: 'Não se esqueça do material.' Esse comando transmite ordem, conselho ou pedido? Analise o contexto em que essa frase poderia ser usada.",
+                            "resposta": "Conselho ou advertência amigável. Poderia ser usado por um professor lembrando os alunos antes de uma prova."
+                        },
+                        {
+                            "pergunta": "Compare: 'Cante mais alto!' e 'Não cante baixo!'. Ambas são imperativos, mas qual é mais eficaz e por quê?",
+                            "resposta": "'Cante mais alto!' é mais eficaz por ser afirmativo e direto, enquanto a forma negativa 'Não cante baixo!' é menos clara sobre o que realmente se deseja."
+                        }
+                    ]
+                },
+                {
+                    "titulo": "Ortografia: s, ss, c, ç, sc",
+                    "explicacao_simplificada": "O som /s/ pode ser escrito como s, ss, c, ç, sc. O som /z/ pode ser escrito como s, z.",
+                    "explicacao_detalhada": {
+                        "/s/": [
+                            "S no início de palavras: sapo, sala, sol",
+                            "SS entre vogais: passeio, osso, assado",
+                            "Ç antes de A, O, U: caça, poço, açúcar",
+                            "C antes de E, I: cidade, cimento, certo",
+                            "SC antes de E, I: nascer, crescer, piscina"
+                        ],
+                        "/z/": [
+                            "S entre vogais: casa, rosa, música",
+                            "Z no início, meio ou fim: zebra, buzina, rapaz"
+                        ]
+                    },
+                    "regras_gramaticais": {
+                        "s_inicial": "Sempre tem som de /s/: sapato, sol, sala",
+                        "ss_vogais": "Usado entre vogais para manter som de /s/: passeio, assunto",
+                        "c_cedilha": "Ç usado antes de A, O, U para som de /s/: ça, ço, çu",
+                        "c_e_i": "C antes de E e I tem som de /s/: centro, cimento",
+                        "sc_e_i": "SC antes de E e I: descer, crescer, nascer"
+                    },
+                    "exemplos": [
+                        "Com SS: passeio, osso, assento",
+                        "Com Ç: caça, poço, açúcar",
+                        "Com SC: nascer, descer, crescer",
+                        "Com S entre vogais (/z/): casa, rosa, besouro"
+                    ],
+                    "atividades_simples": [
+                        {
+                            "pergunta": "Complete com s, ss, c ou ç: pa__agem.",
+                            "resposta": "ss"
+                        },
+                        {
+                            "pergunta": "Complete com s ou z: lu__.",
+                            "resposta": "z"
+                        },
+                        {
+                            "pergunta": "Complete com s, ss, c ou ç: cre__er.",
+                            "resposta": "sc"
+                        }
+                    ],
+                    "questoes_multipla_escolha": [
+                        {
+                            "pergunta": "Qual palavra tem som de /s/ escrito com SS?",
+                            "opcoes": ["casa", "passo", "rosa", "zebra"],
+                            "resposta": 1
+                        },
+                        {
+                            "pergunta": "Em qual palavra o Ç é usado corretamente?",
+                            "opcoes": ["caça", "cesso", "çidade", "çerto"],
+                            "resposta": 0
+                        },
+                        {
+                            "pergunta": "Qual regra justifica o uso de SC em 'nascer'?",
+                            "opcoes": ["Som de /s/ entre vogais", "Som de /s/ antes de E", "Som de /z/ no início", "Som de /s/ no fim"],
+                            "resposta": 1
+                        }
+                    ],
+                    "atividades_interpretacao": [
+                        {
+                            "pergunta": "Leia: 'A beleza da paisagem impressionou a todos.' Identifique palavras com sons diferentes representados pela letra S e explique cada caso.",
+                            "resposta": "'beleza' - S entre vogais = /z/; 'paisagem' - S entre vogais = /z/; 'impressionou' - SS entre vogais = /s/"
+                        },
+                        {
+                            "pergunta": "Leia: 'O rapaz trouxe a lição completa.' Identifique e classifique todas as representações do som /s/ nesta frase.",
+                            "resposta": "'rapaz' - Z final = /s/; 'trouxe' - X com som de /s/; 'lição' - Ç antes de O = /s/; 'completa' - sem /s/"
+                        },
+                        {
+                            "pergunta": "Leia: 'A casa azul estava vazia.' Explique por que a letra S representa sons diferentes em 'casa' e 'estava'.",
+                            "resposta": "'casa' - S entre vogais = /z/; 'estava' - S inicial da sílaba 'ta' = /s/"
+                        },
+                        {
+                            "pergunta": "Crie uma frase usando pelo menos três representações diferentes do som /s/ (s, ss, c, ç, sc). Identifique cada uso.",
+                            "resposta": "Exemplo: 'O assado (ss) daça (ç) estava (s) delicioso.' - ss entre vogais, ç antes de A, s inicial de sílaba"
+                        }
+                    ]
+                }
+            ]
+        };
+
+        // Função para renderizar o conteúdo
+        function renderizarConteudo() {
+            const conteudoDiv = document.getElementById('conteudo');
+            let html = '';
+            
+            dadosAula.conteudos.forEach((conteudo, index) => {
+                html += `
+                    <div class="topico">
+                        <h2 class="topico-titulo">${conteudo.titulo}</h2>
+                        
+                        <div class="explicacao-simplificada">
+                            <p>${conteudo.explicacao_simplificada}</p>
+                        </div>
+                        
+                        <div class="explicacao-detalhada">
+                            <h3>Explicação Detalhada:</h3>
+                            ${Object.entries(conteudo.explicacao_detalhada).map(([key, value]) => `
+                                <h4>${key.charAt(0).toUpperCase() + key.slice(1)}:</h4>
+                                <p>${value}</p>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="regras-gramaticais">
+                            <h3>Regras Gramaticais:</h3>
+                            ${Object.entries(conteudo.regras_gramaticais).map(([key, value]) => `
+                                <h4>${key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</h4>
+                                <p>${value}</p>
+                            `).join('')}
+                        </div>
+                        
+                        <div class="exemplos">
+                            <h4>Exemplos:</h4>
+                            <ul class="exemplos-lista">
+                                ${conteudo.exemplos.map(exemplo => `<li>${exemplo}</li>`).join('')}
+                            </ul>
+                        </div>
+                        
+                        <div class="atividades">
+                            <h3 class="atividade-titulo">Atividades Simples:</h3>
+                            ${conteudo.atividades_simples.map((atividade, i) => `
+                                <div class="questao">
+                                    <p class="pergunta">${atividade.pergunta}</p>
+                                    <button class="resposta-btn" onclick="mostrarResposta('resposta-simples-${index}-${i}')">Mostrar Resposta</button>
+                                    <div id="resposta-simples-${index}-${i}" class="resposta">${atividade.resposta}</div>
+                                </div>
+                            `).join('')}
+                            
+                            <h3 class="atividade-titulo">Questões de Múltipla Escolha:</h3>
+                            ${conteudo.questoes_multipla_escolha.map((questao, i) => `
+                                <div class="questao">
+                                    <p class="pergunta">${questao.pergunta}</p>
+                                    <ul class="opcoes">
+                                        ${questao.opcoes.map((opcao, j) => `
+                                            <li onclick="verificarResposta(this, ${questao.resposta}, ${j}, 'feedback-${index}-${i}')">${opcao}</li>
+                                        `).join('')}
+                                    </ul>
+                                    <div id="feedback-${index}-${i}" class="feedback"></div>
+                                </div>
+                            `).join('')}
+                            
+                            <h3 class="atividade-titulo">Atividades Interpretativas:</h3>
+                            ${conteudo.atividades_interpretacao.map((atividade, i) => `
+                                <div class="questao">
+                                    <p class="pergunta">${atividade.pergunta}</p>
+                                    <button class="resposta-btn" onclick="mostrarResposta('resposta-interpretativa-${index}-${i}')">Mostrar Resposta</button>
+                                    <div id="resposta-interpretativa-${index}-${i}" class="resposta">${atividade.resposta}</div>
+                                </div>
+                            `).join('')}
+                        </div>
+                    </div>
+                `;
+            });
+            
+            conteudoDiv.innerHTML = html;
+        }
+        
+        // Função para mostrar respostas
+        function mostrarResposta(id) {
+            const resposta = document.getElementById(id);
+            resposta.style.display = 'block';
+        }
+        
+        // Função para verificar respostas de múltipla escolha
+        function verificarResposta(elemento, respostaCorreta, respostaSelecionada, feedbackId) {
+            const opcoes = elemento.parentElement.querySelectorAll('li');
+            opcoes.forEach(opcao => {
+                opcao.style.backgroundColor = '';
+            });
+            
+            elemento.style.backgroundColor = '#ffcc00';
+            
+            const feedback = document.getElementById(feedbackId);
+            
+            if (respostaSelecionada === respostaCorreta) {
+                feedback.innerHTML = 'Correto! Parabéns! 🎉';
+                feedback.className = 'feedback correta';
+                elemento.style.backgroundColor = '#d4edda';
+            } else {
+                feedback.innerHTML = 'Ops! Tente novamente. 💪';
+                feedback.className = 'feedback incorreta';
+                elemento.style.backgroundColor = '#f8d7da';
+                
+                // Destacar a resposta correta
+                opcoes[respostaCorreta].style.backgroundColor = '#d4edda';
+            }
+        }
+        
+        // Inicializar a página
+        window.onload = renderizarConteudo;
+    </script>
 </body>
 </html>
