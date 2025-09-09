@@ -1,588 +1,484 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aulas da Maria Isabel!</title>
-    <style>
-        :root {
-            --azul-primario: #4A6FA5;
-            --azul-secundario: #6B9ACA;
-            --lilas-primario: #9B7EDE;
-            --lilas-secundario: #C5B4E3;
-            --lilas-claro: #E6E0F8;
-            --branco: #FFFFFF;
-            --cinza-claro: #F5F5F5;
-            --texto-escuro: #333333;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Comic Sans MS', 'Chalkboard SE', sans-serif;
-        }
-        
-        body {
-            background-color: var(--cinza-claro);
-            color: var(--texto-escuro);
-            line-height: 1.6;
-            padding: 20px;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background-color: var(--branco);
-            border-radius: 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-        }
-        
-        header {
-            background: linear-gradient(135deg, var(--azul-primario), var(--lilas-primario));
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            border-bottom: 5px solid var(--lilas-secundario);
-        }
-        
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.2rem;
-            opacity: 0.9;
-        }
-        
-        .conteudo {
-            padding: 20px;
-        }
-        
-        .topico {
-            background-color: var(--lilas-claro);
-            border-radius: 15px;
-            margin-bottom: 25px;
-            padding: 20px;
-            border-left: 5px solid var(--lilas-primario);
-        }
-        
-        .topico-titulo {
-            color: var(--azul-primario);
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-        
-        .explicacao-simplificada {
-            background-color: var(--branco);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            font-size: 1.1rem;
-        }
-        
-        .explicacao-detalhada {
-            background-color: var(--branco);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .explicacao-detalhada h4 {
-            color: var(--lilas-primario);
-            margin: 10px 0 5px;
-        }
-        
-        .regras-gramaticais {
-            background-color: var(--branco);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .regras-gramaticais h4 {
-            color: var(--azul-primario);
-            margin: 10px 0 5px;
-        }
-        
-        .exemplos {
-            background-color: var(--branco);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-        }
-        
-        .exemplos h4 {
-            color: var(--lilas-primario);
-            margin-bottom: 10px;
-        }
-        
-        .exemplos-lista {
-            list-style-type: none;
-        }
-        
-        .exemplos-lista li {
-            padding: 8px;
-            margin-bottom: 5px;
-            background-color: var(--lilas-claro);
-            border-radius: 8px;
-        }
-        
-        .atividades {
-            margin-top: 20px;
-        }
-        
-        .atividade-titulo {
-            color: var(--azul-primario);
-            margin-bottom: 15px;
-            font-size: 1.4rem;
-        }
-        
-        .questao {
-            background-color: var(--branco);
-            padding: 15px;
-            border-radius: 10px;
-            margin-bottom: 15px;
-            border: 2px solid var(--lilas-secundario);
-        }
-        
-        .pergunta {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-        
-        .opcoes {
-            list-style-type: none;
-            margin: 10px 0;
-        }
-        
-        .opcoes li {
-            padding: 10px;
-            margin-bottom: 8px;
-            background-color: var(--lilas-claro);
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-        
-        .opcoes li:hover {
-            background-color: var(--lilas-secundario);
-        }
-        
-        .resposta-btn {
-            background-color: var(--azul-primario);
-            color: white;
-            border: none;
-            padding: 8px 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            margin-top: 10px;
-            transition: background-color 0.3s;
-        }
-        
-        .resposta-btn:hover {
-            background-color: var(--azul-secundario);
-        }
-        
-        .resposta {
-            margin-top: 10px;
-            padding: 10px;
-            border-radius: 8px;
-            display: none;
-        }
-        
-        .correta {
-            background-color: #D4EDDA;
-            color: #155724;
-            border: 1px solid #C3E6CB;
-        }
-        
-        .incorreta {
-            background-color: #F8D7DA;
-            color: #721C24;
-            border: 1px solid #F5C6CB;
-        }
-        
-        .feedback {
-            font-weight: bold;
-            margin-top: 10px;
-        }
-        
-        footer {
-            text-align: center;
-            padding: 20px;
-            background: linear-gradient(135deg, var(--azul-primario), var(--lilas-primario));
-            color: white;
-            margin-top: 30px;
-        }
-        
-        @media (max-width: 768px) {
-            .container {
-                border-radius: 0;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .topico-titulo {
-                font-size: 1.5rem;
-            }
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Aula Maria Fernanda — Aluna Máster Educação | Funções</title>
+  <style>
+    :root{
+      --azul-1:#0b3d91; /* azul profundo para header */
+      --azul-2:#1565c0; /* azul médio para destaques */
+      --azul-3:#e3f2fd; /* azul muito claro para fundos */
+      --azul-4:#1976d2; /* botões */
+      --branco:#ffffff;
+      --cinza:#f5f7fb;
+      --texto:#0f172a;
+      --ok:#1b5e20;
+      --erro:#c62828;
+      --sombra: 0 8px 20px rgba(11,61,145,0.12);
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;background:var(--cinza);color:var(--texto);font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;line-height:1.5}
+    a{color:var(--azul-2);text-decoration:none}
+    header{
+      position:sticky;top:0;z-index:10;
+      background:linear-gradient(90deg,var(--azul-1),var(--azul-2));
+      color:var(--branco);
+      box-shadow:var(--sombra);
+    }
+    .nav{max-width:1100px;margin:0 auto;display:flex;align-items:center;gap:16px;padding:12px 20px;flex-wrap:wrap}
+    .brand{font-weight:800;letter-spacing:.3px}
+    .brand small{opacity:.9;font-weight:600}
+    .nav a{color:var(--branco);opacity:.9;padding:8px 10px;border-radius:10px}
+    .nav a:hover{background:rgba(255,255,255,.15);opacity:1}
+
+    .banner{background:linear-gradient(180deg,var(--azul-2),#2e8be6 60%,var(--azul-3));color:var(--branco);padding:36px 16px 28px}
+    .banner-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:center}
+    .badge{display:inline-block;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.45);padding:6px 10px;border-radius:999px;font-size:.9rem}
+    h1{margin:10px 0 6px;font-size:2.2rem}
+    .subtitle{opacity:.95;margin-top:4px}
+    .card{background:var(--branco);border-radius:18px;box-shadow:var(--sombra);padding:18px}
+
+    main{max-width:1100px;margin:18px auto;padding:0 16px;display:grid;gap:18px}
+    section h2{margin:0 0 8px}
+    .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+    @media (max-width:920px){.banner-inner{grid-template-columns:1fr}.grid-2,.grid-3{grid-template-columns:1fr}}
+
+    .pill{display:inline-flex;align-items:center;gap:8px;background:var(--azul-3);color:#0b2a5c;border:1px solid #cfe8ff;border-radius:999px;padding:6px 10px;font-weight:600}
+    .mono{font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace}
+
+    .btn{background:var(--azul-4);color:var(--branco);border:none;border-radius:12px;padding:10px 14px;font-weight:700;cursor:pointer}
+    .btn.secondary{background:#e8f1ff;color:#103b87;border:1px solid #bcd8ff}
+    .btn.ghost{background:transparent;color:var(--azul-4);border:1px dashed var(--azul-4)}
+    .btn:disabled{opacity:.5;cursor:not-allowed}
+
+    .notice{padding:10px 12px;border-left:4px solid var(--azul-2);background:var(--azul-3);border-radius:10px}
+    .good{color:var(--ok);font-weight:700}
+    .bad{color:var(--erro);font-weight:700}
+
+    .q{border:1px solid #e6eefb;border-radius:16px;padding:14px;margin:10px 0;background:#fcfdff}
+    .q h4{margin:0 0 10px}
+    .q footer{margin-top:10px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
+    .feedback{font-weight:700}
+    .answer{display:none;margin-left:8px}
+
+    .tabela{width:100%;border-collapse:collapse}
+    .tabela th,.tabela td{border:1px solid #d7e6ff;padding:8px;text-align:center}
+    .tabela th{background:#eaf3ff}
+
+    /* Canvas/grade */
+    #grafico-wrap{display:grid;grid-template-columns:1.2fr .8fr;gap:14px}
+    #canvas{width:100%;height:420px;background:#ffffff;border-radius:16px;border:1px solid #d1e3ff}
+    @media(max-width:920px){#grafico-wrap{grid-template-columns:1fr}}
+
+    .footer{margin:24px auto 40px;max-width:1100px;padding:12px 16px;color:#375e9f}
+  </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <h1>Aulas da Maria Isabel!</h1>
-            <p class="subtitle">Aprenda Português de forma divertida!</p>
-        </header>
-        
-        <div class="conteudo" id="conteudo">
-            <!-- O conteúdo será inserido aqui pelo JavaScript -->
+  <header>
+    <nav class="nav">
+      <div class="brand">Aula Maria Fernanda · <small>Aluna Máster Educação</small></div>
+      <div style="flex:1"></div>
+      <a href="#intro">Introdução</a>
+      <a href="#oque">O que é função</a>
+      <a href="#nao-e">O que não é</a>
+      <a href="#exemplos">Exemplos</a>
+      <a href="#construir">Construir função</a>
+      <a href="#grafico">Dinâmica de gráficos</a>
+      <a href="#exercicios">Exercícios</a>
+    </nav>
+  </header>
+
+  <div class="banner">
+    <div class="banner-inner">
+      <div>
+        <span class="badge">Trilha: Matemática · 9º ano (Extensão Fundamental)</span>
+        <h1>Funções — guia objetivo, direto e visual</h1>
+        <p class="subtitle">Explicações curtas, cores em tons de <b>azul</b> e <b>branco</b>, exercícios interativos com gabarito e uma atividade de gráfico para fixar.</p>
+        <div style="display:flex;gap:10px;margin-top:10px;flex-wrap:wrap">
+          <button class="btn" onclick="rolar('#exercicios')">Ir para os exercícios</button>
+          <button class="btn secondary" onclick="rolar('#grafico')">Ir para a dinâmica de gráficos</button>
         </div>
-        
-        <footer>
-            <p>© 2023 Aulas da Maria Isabel - Todos os direitos reservados</p>
-        </footer>
+      </div>
+      <div class="card">
+        <h3 style="margin-top:0; color:black">Estrutura da aula</h3>
+        <ol style="margin:0 0 8px 18px; color:black">
+          <li>O que é função · máquina de entradas e saídas</li>
+          <li>O que não é função · teste da linha vertical</li>
+          <li>Exemplos e contraexemplos do dia a dia</li>
+          <li>Como construir uma função (tabela → gráfico)</li>
+          <li>Dinâmica de gráficos (atividade prática)</li>
+          <li>Exercícios interativos com gabarito imediato</li>
+        </ol>
+        <div class="notice" style="color:black">Dica TDAH: alternar <b>microblocos</b> de teoria e prática + feedback imediato.</div>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Dados do JSON
-        const dadosAula = {
-            "conteudos": [
-                {
-                    "titulo": "Modos Verbais (Imperativo, Subjuntivo, Indicativo)",
-                    "explicacao_simplificada": "Indicativo: fatos reais; Subjuntivo: hipóteses, desejos, dúvidas; Imperativo: ordens, pedidos, conselhos.",
-                    "explicacao_detalhada": {
-                        "indicativo": "Expressa ações reais, concretas, seguras. Exemplo: 'Eu estudo todos os dias.'",
-                        "subjuntivo": "Expressa desejo, dúvida, condição ou possibilidade. Usado após expressões como 'espero que', 'talvez', 'se'. Exemplo: 'Se eu estudasse mais, teria melhores notas.'",
-                        "imperativo": "Expressa ordem, pedido, conselho ou convite. Pode ser afirmativo (Faça!) ou negativo (Não faça!). Não possui primeira pessoa do singular (eu)."
-                    },
-                    "regras_gramaticais": {
-                        "imperativo_afirmativo": "Formado a partir do presente do indicativo (tu/vós) e subjuntivo (você/ vocês/nós). Ex: (tu) fala!, (você) fale!, (nós) falemos!",
-                        "imperativo_negativo": "Sempre formado a partir do presente do subjuntivo. Ex: (tu) não fales!, (você) não fale!, (nós) não falemos!",
-                        "subjuntivo": "Usado para expressar incerteza, desejo ou hipótese. Aparece frequentemente em orações iniciadas por 'que', 'se', 'quando', 'espero que', 'talvez'."
-                    },
-                    "exemplos": [
-                        "Imperativo afirmativo: Estude! / Venham aqui!",
-                        "Imperativo negativo: Não saiam! / Não fale alto!",
-                        "Subjuntivo: Espero que você venha. / Se eu pudesse, ajudaria.",
-                        "Indicativo: Ele estuda muito. / Nós vamos ao cinema."
-                    ],
-                    "atividades_simples": [
-                        {
-                            "pergunta": "Classifique o modo verbal: 'Maria viajará amanhã.'",
-                            "resposta": "Indicativo"
-                        },
-                        {
-                            "pergunta": "Classifique o modo verbal: 'Espero que ele estude mais.'",
-                            "resposta": "Subjuntivo"
-                        },
-                        {
-                            "pergunta": "Classifique o modo verbal: 'Estude para a prova!'",
-                            "resposta": "Imperativo"
-                        }
-                    ],
-                    "questoes_multipla_escolha": [
-                        {
-                            "pergunta": "Qual modo verbal é usado para expressar uma ordem direta?",
-                            "opcoes": ["Indicativo", "Subjuntivo", "Imperativo", "Gerúndio"],
-                            "resposta": 2
-                        },
-                        {
-                            "pergunta": "Em qual frase o verbo está no subjuntivo?",
-                            "opcoes": ["Eu estudo muito.", "Estude agora!", "Talvez eu estude mais.", "Eu estudarei amanhã."],
-                            "resposta": 2
-                        },
-                        {
-                            "pergunta": "O modo indicativo é utilizado para expressar:",
-                            "opcoes": ["Desejos e hipóteses", "Ordens e comandos", "Fatos reais e certezas", "Proibições"],
-                            "resposta": 2
-                        }
-                    ],
-                    "atividades_interpretacao": [
-                        {
-                            "pergunta": "Leia: 'Se todos colaborassem, o problema estaria resolvido.' Qual é o modo verbal usado e por que ele foi escolhido?",
-                            "resposta": "Subjuntivo, porque expressa uma hipótese ou condição não realizada."
-                        },
-                        {
-                            "pergunta": "Leia: 'O aluno deve entregar o trabalho até sexta.' O verbo 'deve' está em qual modo verbal? Justifique sua resposta.",
-                            "resposta": "Indicativo, porque expressa uma obrigação real e factual."
-                        },
-                        {
-                            "pergunta": "Leia: 'Não se atrasem para a aula!' O verbo está em qual modo? Explique o efeito de sentido criado pela forma negativa do imperativo.",
-                            "resposta": "Imperativo negativo. A forma negativa cria uma proibição ou advertência, em vez de uma ordem positiva."
-                        },
-                        {
-                            "pergunta": "Compare estas duas frases: 'Venha aqui!' e 'Espero que você venha aqui.'. Por que o modo verbal muda mesmo o verbo sendo o mesmo?",
-                            "resposta": "Na primeira, há uma ordem direta (imperativo). Na segunda, há um desejo ou expectativa (subjuntivo), mostrando maior polidez e incerteza."
-                        }
-                    ]
-                },
-                {
-                    "titulo": "Imperativo afirmativo e negativo",
-                    "explicacao_simplificada": "Imperativo afirmativo: ordens, conselhos ou convites (Ex.: 'Estude mais!'). Imperativo negativo: proibições ou recomendações de não fazer algo (Ex.: 'Não fale alto!').",
-                    "explicacao_detalhada": {
-                        "imperativo_afirmativo": "Usado para dar comandos, instruções, convites ou conselhos de forma direta. Forma-se de maneira diferente para cada pessoa: tu (usa forma do indicativo), você/nós/vocês (usa forma do subjuntivo).",
-                        "imperativo_negativo": "Usado para proibir, dissuadir ou advertir. Sempre formado a partir do presente do subjuntivo para todas as pessoas, precedido de 'não'."
-                    },
-                    "regras_gramaticais": {
-                        "afirmativo_tu": "Retira-se a -s do presente do indicativo: tu andas → Anda!",
-                        "afirmativo_você": "Usa-se presente do subjuntivo: que você ande → Ande!",
-                        "afirmativo_nós": "Usa-se presente do subjuntivo: que nós andemos → Andemos!",
-                        "negativo_geral": "Todas as pessoas usam presente do subjuntivo: não andes, não ande, não andemos"
-                    },
-                    "exemplos": [
-                        "Afirmativo: (tu) Fala baixo! / (você) Faça silêncio!",
-                        "Negativo: (tu) Não fales alto! / (você) Não faça barulho!",
-                        "Afirmativo: (nós) Vamos estudar! / (vocês) Venham já!",
-                        "Negativo: (nós) Não vamos embora! / (vocês) Não venham tarde!"
-                    ],
-                    "atividades_simples": [
-                        {
-                            "pergunta": "Transforme em imperativo afirmativo: 'Você deve estudar.'",
-                            "resposta": "Estude!"
-                        },
-                        {
-                            "pergunta": "Transforme em imperativo negativo: 'Você deve correr.'",
-                            "resposta": "Não corra!"
-                        },
-                        {
-                            "pergunta": "Reescreva no imperativo afirmativo: 'Você precisa escutar.'",
-                            "resposta": "Escute!"
-                        }
-                    ],
-                    "questoes_multipla_escolha": [
-                        {
-                            "pergunta": "Como se forma o imperativo negativo para a 2ª pessoa do singular (tu)?",
-                            "opcoes": ["Com o presente do indicativo", "Com o infinitivo do verbo", "Com o presente do subjuntivo", "Com o pretérito perfeito"],
-                            "resposta": 2
-                        },
-                        {
-                            "pergunta": "Qual frase está no imperativo afirmativo?",
-                            "opcoes": ["Não saia agora.", "Talvez eu saia.", "Saia imediatamente!", "Eu sairei mais tarde."],
-                            "resposta": 2
-                        },
-                        {
-                            "pergunta": "Qual a diferença principal entre imperativo afirmativo e negativo?",
-                            "opcoes": ["O tempo verbal", "A pessoa gramatical", "A afirmação versus negação do comando", "A regência verbal"],
-                            "resposta": 2
-                        }
-                    ],
-                    "atividades_interpretacao": [
-                        {
-                            "pergunta": "Leia: 'Não deixem lixo na praia.' Essa frase é imperativo afirmativo ou negativo? Que tipo de atitude social ela busca promover?",
-                            "resposta": "Negativo. Busca promover consciência ambiental e cidadania."
-                        },
-                        {
-                            "pergunta": "Leia: 'Respeitem os professores.' Qual o tipo de imperativo? Reescreva essa frase na forma negativa mantendo o mesmo sentido.",
-                            "resposta": "Afirmativo. Forma negativa: 'Não desrespeitem os professores.'"
-                        },
-                        {
-                            "pergunta": "Leia: 'Não se esqueça do material.' Esse comando transmite ordem, conselho ou pedido? Analise o contexto em que essa frase poderia ser usada.",
-                            "resposta": "Conselho ou advertência amigável. Poderia ser usado por um professor lembrando os alunos antes de uma prova."
-                        },
-                        {
-                            "pergunta": "Compare: 'Cante mais alto!' e 'Não cante baixo!'. Ambas são imperativos, mas qual é mais eficaz e por quê?",
-                            "resposta": "'Cante mais alto!' é mais eficaz por ser afirmativo e direto, enquanto a forma negativa 'Não cante baixo!' é menos clara sobre o que realmente se deseja."
-                        }
-                    ]
-                },
-                {
-                    "titulo": "Ortografia: s, ss, c, ç, sc",
-                    "explicacao_simplificada": "O som /s/ pode ser escrito como s, ss, c, ç, sc. O som /z/ pode ser escrito como s, z.",
-                    "explicacao_detalhada": {
-                        "/s/": [
-                            "S no início de palavras: sapo, sala, sol",
-                            "SS entre vogais: passeio, osso, assado",
-                            "Ç antes de A, O, U: caça, poço, açúcar",
-                            "C antes de E, I: cidade, cimento, certo",
-                            "SC antes de E, I: nascer, crescer, piscina"
-                        ],
-                        "/z/": [
-                            "S entre vogais: casa, rosa, música",
-                            "Z no início, meio ou fim: zebra, buzina, rapaz"
-                        ]
-                    },
-                    "regras_gramaticais": {
-                        "s_inicial": "Sempre tem som de /s/: sapato, sol, sala",
-                        "ss_vogais": "Usado entre vogais para manter som de /s/: passeio, assunto",
-                        "c_cedilha": "Ç usado antes de A, O, U para som de /s/: ça, ço, çu",
-                        "c_e_i": "C antes de E e I tem som de /s/: centro, cimento",
-                        "sc_e_i": "SC antes de E e I: descer, crescer, nascer"
-                    },
-                    "exemplos": [
-                        "Com SS: passeio, osso, assento",
-                        "Com Ç: caça, poço, açúcar",
-                        "Com SC: nascer, descer, crescer",
-                        "Com S entre vogais (/z/): casa, rosa, besouro"
-                    ],
-                    "atividades_simples": [
-                        {
-                            "pergunta": "Complete com s, ss, c ou ç: pa__agem.",
-                            "resposta": "ss"
-                        },
-                        {
-                            "pergunta": "Complete com s ou z: lu__.",
-                            "resposta": "z"
-                        },
-                        {
-                            "pergunta": "Complete com s, ss, c ou ç: cre__er.",
-                            "resposta": "sc"
-                        }
-                    ],
-                    "questoes_multipla_escolha": [
-                        {
-                            "pergunta": "Qual palavra tem som de /s/ escrito com SS?",
-                            "opcoes": ["casa", "passo", "rosa", "zebra"],
-                            "resposta": 1
-                        },
-                        {
-                            "pergunta": "Em qual palavra o Ç é usado corretamente?",
-                            "opcoes": ["caça", "cesso", "çidade", "çerto"],
-                            "resposta": 0
-                        },
-                        {
-                            "pergunta": "Qual regra justifica o uso de SC em 'nascer'?",
-                            "opcoes": ["Som de /s/ entre vogais", "Som de /s/ antes de E", "Som de /z/ no início", "Som de /s/ no fim"],
-                            "resposta": 1
-                        }
-                    ],
-                    "atividades_interpretacao": [
-                        {
-                            "pergunta": "Leia: 'A beleza da paisagem impressionou a todos.' Identifique palavras com sons diferentes representados pela letra S e explique cada caso.",
-                            "resposta": "'beleza' - S entre vogais = /z/; 'paisagem' - S entre vogais = /z/; 'impressionou' - SS entre vogais = /s/"
-                        },
-                        {
-                            "pergunta": "Leia: 'O rapaz trouxe a lição completa.' Identifique e classifique todas as representações do som /s/ nesta frase.",
-                            "resposta": "'rapaz' - Z final = /s/; 'trouxe' - X com som de /s/; 'lição' - Ç antes de O = /s/; 'completa' - sem /s/"
-                        },
-                        {
-                            "pergunta": "Leia: 'A casa azul estava vazia.' Explique por que a letra S representa sons diferentes em 'casa' e 'estava'.",
-                            "resposta": "'casa' - S entre vogais = /z/; 'estava' - S inicial da sílaba 'ta' = /s/"
-                        },
-                        {
-                            "pergunta": "Crie uma frase usando pelo menos três representações diferentes do som /s/ (s, ss, c, ç, sc). Identifique cada uso.",
-                            "resposta": "Exemplo: 'O assado (ss) daça (ç) estava (s) delicioso.' - ss entre vogais, ç antes de A, s inicial de sílaba"
-                        }
-                    ]
-                }
-            ]
-        };
+  <main>
+    <section id="intro" class="card">
+      <h2>Introdução (produção)</h2>
+      <p><b>Função</b> é uma <b>regra</b> que, para cada <span class="pill">entrada <span class="mono">x</span></span>, produz uma única <span class="pill">saída <span class="mono">y</span></span>. Pense numa máquina: entra um número, sai exatamente um resultado.</p>
+      <ul>
+        <li><b>Domínio</b>: valores possíveis de <span class="mono">x</span>.</li>
+        <li><b>Imagem</b>: resultados possíveis de <span class="mono">y</span>.</li>
+        <li><b>Regra/Lei</b>: como transformar <span class="mono">x</span> em <span class="mono">y</span> (ex.: <span class="mono">y = 2x + 1</span>).</li>
+      </ul>
+    </section>
 
-        // Função para renderizar o conteúdo
-        function renderizarConteudo() {
-            const conteudoDiv = document.getElementById('conteudo');
-            let html = '';
-            
-            dadosAula.conteudos.forEach((conteudo, index) => {
-                html += `
-                    <div class="topico">
-                        <h2 class="topico-titulo">${conteudo.titulo}</h2>
-                        
-                        <div class="explicacao-simplificada">
-                            <p>${conteudo.explicacao_simplificada}</p>
-                        </div>
-                        
-                        <div class="explicacao-detalhada">
-                            <h3>Explicação Detalhada:</h3>
-                            ${Object.entries(conteudo.explicacao_detalhada).map(([key, value]) => `
-                                <h4>${key.charAt(0).toUpperCase() + key.slice(1)}:</h4>
-                                <p>${value}</p>
-                            `).join('')}
-                        </div>
-                        
-                        <div class="regras-gramaticais">
-                            <h3>Regras Gramaticais:</h3>
-                            ${Object.entries(conteudo.regras_gramaticais).map(([key, value]) => `
-                                <h4>${key.replace(/_/g, ' ').replace(/\b\w/g, l => l.toUpperCase())}:</h4>
-                                <p>${value}</p>
-                            `).join('')}
-                        </div>
-                        
-                        <div class="exemplos">
-                            <h4>Exemplos:</h4>
-                            <ul class="exemplos-lista">
-                                ${conteudo.exemplos.map(exemplo => `<li>${exemplo}</li>`).join('')}
-                            </ul>
-                        </div>
-                        
-                        <div class="atividades">
-                            <h3 class="atividade-titulo">Atividades Simples:</h3>
-                            ${conteudo.atividades_simples.map((atividade, i) => `
-                                <div class="questao">
-                                    <p class="pergunta">${atividade.pergunta}</p>
-                                    <button class="resposta-btn" onclick="mostrarResposta('resposta-simples-${index}-${i}')">Mostrar Resposta</button>
-                                    <div id="resposta-simples-${index}-${i}" class="resposta">${atividade.resposta}</div>
-                                </div>
-                            `).join('')}
-                            
-                            <h3 class="atividade-titulo">Questões de Múltipla Escolha:</h3>
-                            ${conteudo.questoes_multipla_escolha.map((questao, i) => `
-                                <div class="questao">
-                                    <p class="pergunta">${questao.pergunta}</p>
-                                    <ul class="opcoes">
-                                        ${questao.opcoes.map((opcao, j) => `
-                                            <li onclick="verificarResposta(this, ${questao.resposta}, ${j}, 'feedback-${index}-${i}')">${opcao}</li>
-                                        `).join('')}
-                                    </ul>
-                                    <div id="feedback-${index}-${i}" class="feedback"></div>
-                                </div>
-                            `).join('')}
-                            
-                            <h3 class="atividade-titulo">Atividades Interpretativas:</h3>
-                            ${conteudo.atividades_interpretacao.map((atividade, i) => `
-                                <div class="questao">
-                                    <p class="pergunta">${atividade.pergunta}</p>
-                                    <button class="resposta-btn" onclick="mostrarResposta('resposta-interpretativa-${index}-${i}')">Mostrar Resposta</button>
-                                    <div id="resposta-interpretativa-${index}-${i}" class="resposta">${atividade.resposta}</div>
-                                </div>
-                            `).join('')}
-                        </div>
-                    </div>
-                `;
-            });
-            
-            conteudoDiv.innerHTML = html;
-        }
-        
-        // Função para mostrar respostas
-        function mostrarResposta(id) {
-            const resposta = document.getElementById(id);
-            resposta.style.display = 'block';
-        }
-        
-        // Função para verificar respostas de múltipla escolha
-        function verificarResposta(elemento, respostaCorreta, respostaSelecionada, feedbackId) {
-            const opcoes = elemento.parentElement.querySelectorAll('li');
-            opcoes.forEach(opcao => {
-                opcao.style.backgroundColor = '';
-            });
-            
-            elemento.style.backgroundColor = '#ffcc00';
-            
-            const feedback = document.getElementById(feedbackId);
-            
-            if (respostaSelecionada === respostaCorreta) {
-                feedback.innerHTML = 'Correto! Parabéns! 🎉';
-                feedback.className = 'feedback correta';
-                elemento.style.backgroundColor = '#d4edda';
-            } else {
-                feedback.innerHTML = 'Ops! Tente novamente. 💪';
-                feedback.className = 'feedback incorreta';
-                elemento.style.backgroundColor = '#f8d7da';
-                
-                // Destacar a resposta correta
-                opcoes[respostaCorreta].style.backgroundColor = '#d4edda';
-            }
-        }
-        
-        // Inicializar a página
-        window.onload = renderizarConteudo;
-    </script>
+    <section id="oque" class="card">
+      <h2>O que é função?</h2>
+      <div class="grid-2">
+        <div>
+          <p><b>Definição curta:</b> relação que associa <b>cada</b> entrada a <b>uma única</b> saída.</p>
+          <p><b>Critério visual:</b> em um gráfico, nenhuma linha vertical deve tocar a curva em dois pontos.</p>
+          <div class="notice">Ex.: <span class="mono">y = x + 2</span>, <span class="mono">y = |x|</span>, preço = taxa fixa + valor por unidade.</div>
+        </div>
+        <div>
+          <table class="tabela">
+            <thead><tr><th>Entrada (x)</th><th>Saída (y)</th><th>Regra</th></tr></thead>
+            <tbody>
+              <tr><td>3</td><td>5</td><td><span class="mono">y = x + 2</span></td></tr>
+              <tr><td>−1</td><td>1</td><td><span class="mono">y = |x|</span></td></tr>
+              <tr><td>2</td><td>4</td><td><span class="mono">y = 2x</span></td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section id="nao-e" class="card">
+      <h2>O que <u>não</u> é função?</h2>
+      <ul>
+        <li>Uma entrada com <b>duas saídas</b> (ex.: <span class="mono">x=4</span> gera <span class="mono">y=2</span> e <span class="mono">y=−2</span>).</li>
+        <li>Gráfico que falha no <b>teste da linha vertical</b>.</li>
+        <li>Tabelas com a mesma entrada aparecendo com saídas diferentes.</li>
+      </ul>
+      <div class="notice">Ex.: <span class="mono">x = y^2</span> (mesmo <span class="mono">x</span> pode ter <span class="mono">y</span> positivo e negativo).</div>
+    </section>
+
+    <section id="exemplos" class="card">
+      <h2>Exemplos e contraexemplos</h2>
+      <div class="grid-2">
+        <div>
+          <h3 style="margin-top:0">Exemplos de função</h3>
+          <ol>
+            <li><span class="mono">y = x + 2</span></li>
+            <li>Preço final = preço base − desconto fixo</li>
+            <li>Idade ↔ ano de nascimento (cada ano → uma idade)</li>
+          </ol>
+        </div>
+        <div>
+          <h3 style="margin-top:0">Exemplos de <u>não</u> função</h3>
+          <ol>
+            <li><span class="mono">x = y^2</span></li>
+            <li>Nome → pessoa (um nome pode ter várias pessoas)</li>
+            <li>Tamanho da pizza → sabor (muitas saídas possíveis)</li>
+          </ol>
+        </div>
+      </div>
+    </section>
+
+    <section id="construir" class="card">
+      <h2>Como construir uma função (tabela → gráfico)</h2>
+      <ol>
+        <li>Escolha uma regra: ex. <span class="mono">y = 2x + 1</span>.</li>
+        <li>Monte uma tabela de valores para <span class="mono">x</span>.</li>
+        <li>Calcule as saídas <span class="mono">y</span>.</li>
+        <li>Marque os pontos e una: formou o gráfico.</li>
+      </ol>
+    </section>
+
+    <section id="grafico" class="card">
+      <h2>Dinâmica de gráficos (atividade prática)</h2>
+      <div id="grafico-wrap">
+        <canvas id="canvas" width="700" height="420" aria-label="Plano cartesiano interativo"></canvas>
+        <div>
+          <p>1) Escolha a função · 2) Preencha a tabela · 3) Plote e confira</p>
+          <label>Função:
+            <select id="funcSelect">
+              <option value="linear">y = 2x + 1</option>
+              <option value="absoluto">y = |x|</option>
+              <option value="quadratica">y = x²</option>
+            </select>
+          </label>
+          <table class="tabela" style="margin-top:10px">
+            <thead><tr><th>x</th><th>y (digite)</th></tr></thead>
+            <tbody id="tbodyVals"></tbody>
+          </table>
+          <div style="display:flex;gap:8px;margin-top:10px">
+            <button class="btn" onclick="plotar()">Plotar</button>
+            <button class="btn secondary" onclick="preencherGabarito()">Preencher gabarito</button>
+            <button class="btn ghost" onclick="limparCanvas()">Limpar</button>
+          </div>
+          <p id="grafMsg" class="feedback"></p>
+        </div>
+      </div>
+    </section>
+
+    <section id="exercicios" class="card">
+      <h2>Exercícios interativos (com gabarito)</h2>
+      <p>São <b>25 questões</b>, organizadas em 5 blocos (5 de cada): <b>é função?</b>, <b>não é função?</b>, <b>cálculos</b>, <b>interpretação</b> e <b>conceitos</b>. Marque alternativas ou responda e clique em <b>Verificar</b>.</p>
+      <div id="listaQuestoes"></div>
+      <div style="display:flex;gap:10px;margin-top:10px">
+        <button class="btn" onclick="verificarTudo()">Verificar tudo</button>
+        <button class="btn secondary" onclick="mostrarGabaritos()">Mostrar gabaritos</button>
+        <button class="btn ghost" onclick="resetQuestoes()">Limpar respostas</button>
+      </div>
+    </section>
+  </main>
+
+  <div class="footer">
+    © Aula Maria Fernanda — Aluna Máster Educação · Cores: tons de azul e branco · Feedback imediato para foco e motivação.
+  </div>
+
+  <script>
+    // ======= Utils =======
+    function rolar(sel){document.querySelector(sel).scrollIntoView({behavior:'smooth'})}
+    const $ = s => document.querySelector(s);
+
+    // ======= Dinâmica de gráficos =======
+    const xsBase = [-2,-1,0,1,2];
+    function regraAtual(x){
+      const v = $('#funcSelect').value;
+      if(v==='linear') return 2*x+1;
+      if(v==='absoluto') return Math.abs(x);
+      if(v==='quadratica') return x*x;
+      return x;
+    }
+    function montarTabela(){
+      const tb = $('#tbodyVals');
+      tb.innerHTML = '';
+      xsBase.forEach((x,i)=>{
+        const tr = document.createElement('tr');
+        const td1 = document.createElement('td'); td1.textContent = x;
+        const td2 = document.createElement('td');
+        const inp = document.createElement('input');
+        inp.type='number'; inp.step='any'; inp.style.width='100%'; inp.dataset.x = x;
+        td2.appendChild(inp);
+        tr.appendChild(td1); tr.appendChild(td2);
+        tb.appendChild(tr);
+      })
+      $('#grafMsg').textContent='';
+      desenharGrade();
+    }
+    $('#funcSelect').addEventListener('change', montarTabela);
+
+    // Canvas/grid
+    const canvas = document.getElementById('canvas');
+    const ctx = canvas.getContext('2d');
+    const W = canvas.width, H = canvas.height;
+    const origem = {x: W/2, y: H/2};
+    const escala = 50; // px por unidade
+
+    function desenharGrade(){
+      ctx.clearRect(0,0,W,H);
+      // fundo
+      ctx.fillStyle = '#ffffff';
+      ctx.fillRect(0,0,W,H);
+      // linhas leves
+      ctx.strokeStyle = '#e6eefb';
+      ctx.lineWidth = 1;
+      for(let x=0; x<=W; x+=escala){
+        ctx.beginPath(); ctx.moveTo(x,0); ctx.lineTo(x,H); ctx.stroke();
+      }
+      for(let y=0; y<=H; y+=escala){
+        ctx.beginPath(); ctx.moveTo(0,y); ctx.lineTo(W,y); ctx.stroke();
+      }
+      // eixos
+      ctx.strokeStyle = '#1565c0';
+      ctx.lineWidth = 2;
+      // eixo x
+      ctx.beginPath(); ctx.moveTo(0,origem.y); ctx.lineTo(W,origem.y); ctx.stroke();
+      // eixo y
+      ctx.beginPath(); ctx.moveTo(origem.x,0); ctx.lineTo(origem.x,H); ctx.stroke();
+      // marcas
+      ctx.fillStyle = '#0b3d91';
+      ctx.font = '12px system-ui';
+      for(let i=-Math.floor(W/(2*escala)); i<=Math.floor(W/(2*escala)); i++){
+        const x = origem.x + i*escala;
+        ctx.fillRect(x,origem.y-3,1,6);
+        if(i!==0) ctx.fillText(i.toString(), x-3, origem.y+14);
+      }
+      for(let j=-Math.floor(H/(2*escala)); j<=Math.floor(H/(2*escala)); j++){
+        const y = origem.y - j*escala;
+        ctx.fillRect(origem.x-3,y,6,1);
+        if(j!==0) ctx.fillText(j.toString(), origem.x+6, y+4);
+      }
+    }
+
+    function toCanvasPoint(x,y){
+      return {x: origem.x + x*escala, y: origem.y - y*escala};
+    }
+
+    function plotar(){
+      desenharGrade();
+      const inputs = Array.from(document.querySelectorAll('#tbodyVals input'));
+      const pontos = [];
+      let acertos = 0;
+      inputs.forEach(inp=>{
+        const x = Number(inp.dataset.x);
+        const y = Number(inp.value);
+        const yc = regraAtual(x);
+        const correto = Math.abs(y - yc) < 1e-9;
+        if(!isFinite(y)) return;
+        pontos.push({x,y,ok:correto});
+        if(correto) acertos++;
+      })
+      // plotar pontos
+      pontos.forEach(p=>{
+        const c = toCanvasPoint(p.x,p.y);
+        ctx.beginPath();
+        ctx.arc(c.x,c.y,5,0,Math.PI*2);
+        ctx.fillStyle = p.ok? '#1b5e20' : '#c62828';
+        ctx.fill();
+        ctx.strokeStyle = '#0b3d91';
+        ctx.stroke();
+      })
+      // se tudo certo, desenhar curva/segmentos aproximados
+      if(acertos===xsBase.length){
+        ctx.strokeStyle = '#1976d2';
+        ctx.lineWidth = 2.5;
+        ctx.beginPath();
+        const v = $('#funcSelect').value;
+        const xs = [];
+        for(let t=-2; t<=2; t+=0.05){ xs.push(t); }
+        xs.forEach((x,i)=>{
+          let y = regraAtual(x);
+          const p = toCanvasPoint(x,y);
+          if(i===0) ctx.moveTo(p.x,p.y); else ctx.lineTo(p.x,p.y);
+        })
+        ctx.stroke();
+        $('#grafMsg').innerHTML = '<span class="good">Parabéns!</span> Pontos corretos formaram o gráfico.';
+      } else {
+        $('#grafMsg').innerHTML = '<span class="bad">Confira seus cálculos.</span> Pontos em verde estão corretos.';
+      }
+    }
+
+    function preencherGabarito(){
+      document.querySelectorAll('#tbodyVals input').forEach(inp=>{
+        const x = Number(inp.dataset.x);
+        inp.value = regraAtual(x);
+      });
+    }
+
+    function limparCanvas(){ desenharGrade(); $('#grafMsg').textContent=''; document.querySelectorAll('#tbodyVals input').forEach(i=>i.value=''); }
+
+    // ======= Banco de questões =======
+    // Tipos: mc (múltipla escolha), ab (aberta numérica ou texto curto)
+    const Questoes = [
+      // Bloco 1: É função? (5)
+      {cat:'É função?', tipo:'mc', enunciado:'Qual relação é uma função de x para y?', op:['x → y com y = 2x + 1','x → y com x = y²','Para x=3, y pode ser 2 ou -2','Cada nome mapeia para várias pessoas'], resp:0, exp:'Função precisa ter saída única para cada entrada. y=2x+1 atende.'},
+      {cat:'É função?', tipo:'mc', enunciado:'No gráfico, a regra passa no teste da linha vertical. Isso indica que:', op:['É função','Não é função','É proporcionalidade inversa','É uma relação simétrica'], resp:0, exp:'Se nenhuma vertical corta em dois pontos, é função.'},
+      {cat:'É função?', tipo:'mc', enunciado:'Tabela: (1→2), (2→4), (2→5), (3→6). Isso é função?', op:['Sim','Não'], resp:1, exp:'A mesma entrada 2 tem duas saídas (4 e 5).'},
+      {cat:'É função?', tipo:'mc', enunciado:'Relação: idade ↔ ano de nascimento (fixo). Isso é função?', op:['Sim','Não'], resp:0, exp:'Cada ano de nascimento determina uma única idade em um ano específico.'},
+      {cat:'É função?', tipo:'mc', enunciado:'Relação: y = |x|. É função?', op:['Sim','Não'], resp:0, exp:'Para cada x há exatamente um y (valor absoluto).'},
+
+      // Bloco 2: Não é função? (5)
+      {cat:'Não é função?', tipo:'mc', enunciado:'Qual NÃO representa função?', op:['x ↦ x²','x ↦ √x (com x ≥ 0)','x ↦ ±√x','x ↦ 2x − 3'], resp:2, exp:'±√x dá duas saídas para o mesmo x.'},
+      {cat:'Não é função?', tipo:'mc', enunciado:'Em um gráfico de círculo (x² + y² = 4), isso é função?', op:['Sim','Não'], resp:1, exp:'Círculo falha no teste da linha vertical.'},
+      {cat:'Não é função?', tipo:'mc', enunciado:'Tabelas que repetem a mesma entrada com saídas diferentes:', op:['São funções','Não são funções'], resp:1, exp:'Violam a unicidade da saída.'},
+      {cat:'Não é função?', tipo:'mc', enunciado:'x = y² representa y como função de x?', op:['Sim','Não'], resp:1, exp:'Para um mesmo x>0, y pode ser +√x e -√x.'},
+      {cat:'Não é função?', tipo:'mc', enunciado:'Relação: tamanho da pizza → sabor possível. É função?', op:['Sim','Não'], resp:1, exp:'Um tamanho pode ter vários sabores.'},
+
+      // Bloco 3: Cálculos (5)
+      {cat:'Cálculos', tipo:'ab', enunciado:'Se f(x)=2x+1, calcule f(3).', ans:'7', exp:'f(3)=2·3+1=7.'},
+      {cat:'Cálculos', tipo:'ab', enunciado:'Se g(x)=x², calcule g(-2).', ans:'4', exp:'(-2)²=4.'},
+      {cat:'Cálculos', tipo:'ab', enunciado:'Se h(x)=|x|, calcule h(-5).', ans:'5', exp:'Valor absoluto de -5 é 5.'},
+      {cat:'Cálculos', tipo:'ab', enunciado:'Se p(x)=3x-4, ache x tal que p(x)=8.', ans:'4', exp:'3x-4=8 ⇒ 3x=12 ⇒ x=4.'},
+      {cat:'Cálculos', tipo:'ab', enunciado:'f(x)=x²+2x. Calcule f(1).', ans:'3', exp:'1²+2·1=3.'},
+
+      // Bloco 4: Interpretação (5)
+      {cat:'Interpretação', tipo:'mc', enunciado:'Uma loja tem lucro L(x)=50+10x, onde x é o nº de produtos. O que significa 50?', op:['Lucro por produto','Lucro fixo','Preço por produto','Desconto'], resp:1, exp:'Termo independente é a parte fixa.'},
+      {cat:'Interpretação', tipo:'ab', enunciado:'Passe de ônibus R(d)=8d representa gasto em d dias (2 ônibus/dia, R$4 cada). Quanto gasta em 5 dias?', ans:'40', exp:'8·5=40.'},
+      {cat:'Interpretação', tipo:'mc', enunciado:'Corrida: C(k)=5+2k (R$). O que é 2?', op:['Tarifa inicial','Preço por km','Desconto','Velocidade'], resp:1, exp:'Coeficiente de k é preço por km.'},
+      {cat:'Interpretação', tipo:'ab', enunciado:'Plano de celular: P(m)=29+10m. Quanto em 3 meses?', ans:'59', exp:'29+10·3=59.'},
+      {cat:'Interpretação', tipo:'mc', enunciado:'Se V(t)=100−5t (estoque), qual interpretação de −5?', op:['Aumenta 5 por t','Diminui 5 por t','Valor inicial','Desconhecido'], resp:1, exp:'Coeficiente negativo: decresce 5 por unidade de t.'},
+
+      // Bloco 5: Conceitos (5) — domínio, imagem, propriedades simples
+      {cat:'Conceitos', tipo:'mc', enunciado:'Domínio de f(x)=√x é:', op:['Todos os reais','x ≥ 0','x > 0','x ≤ 0'], resp:1, exp:'Raiz quadrada real definida para x≥0.'},
+      {cat:'Conceitos', tipo:'mc', enunciado:'Imagem de f(x)=|x| é:', op:['Reais','x ≥ 0','x ≤ 0','Inteiros'], resp:1, exp:'Valor absoluto nunca é negativo.'},
+      {cat:'Conceitos', tipo:'mc', enunciado:'f(x)=2x é função linear. Seu gráfico é:', op:['Reta','Parábola','Círculo','Hipérbole'], resp:0, exp:'Função de 1º grau é reta.'},
+      {cat:'Conceitos', tipo:'ab', enunciado:'Complete: no “teste da ____ vertical”, se uma linha cortar o gráfico em dois pontos, não é função.', ans:'linha', exp:'É o teste da linha vertical.'},
+      {cat:'Conceitos', tipo:'ab', enunciado:'Se f(x)=x², qual é f(0)?', ans:'0', exp:'0²=0.'}
+    ];
+
+    function criarQuestaoHTML(q, idx){
+      const div = document.createElement('div');
+      div.className = 'q';
+      const titulo = `<div class="pill">${q.cat}</div>`;
+      let corpo = `<h4>${idx+1}. ${q.enunciado}</h4>`;
+      if(q.tipo==='mc'){
+        const ops = q.op.map((t,i)=>{
+          const id = `q${idx}_op${i}`;
+          return `<label style="display:block;margin:6px 0"><input type="radio" name="q${idx}" value="${i}"> ${t}</label>`
+        }).join('');
+        corpo += ops;
+      } else if(q.tipo==='ab'){
+        corpo += `<input type="text" id="q${idx}_ab" placeholder="Digite sua resposta" style="width:100%;padding:8px;border:1px solid #cfe1ff;border-radius:10px">`;
+      }
+      const footer = `<footer>
+        <button class="btn" onclick="verificar(${idx})">Verificar</button>
+        <button class="btn secondary" onclick="mostrarGabarito(${idx})">Mostrar gabarito</button>
+        <span id="fb${idx}" class="feedback"></span>
+        <span id="ans${idx}" class="answer"></span>
+      </footer>`;
+      div.innerHTML = titulo + corpo + footer;
+      return div;
+    }
+
+    function montarQuestoes(){
+      const wrap = $('#listaQuestoes');
+      wrap.innerHTML = '';
+      Questoes.forEach((q,i)=> wrap.appendChild(criarQuestaoHTML(q,i)) );
+    }
+
+    function normalizarTexto(s){
+      return (s||'').toString().trim().toLowerCase()
+        .normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+    }
+
+    function verificar(i){
+      const q = Questoes[i];
+      const fb = $(`#fb${i}`); const ans = $(`#ans${i}`);
+      let ok = false;
+      if(q.tipo==='mc'){
+        const marcado = document.querySelector(`input[name="q${i}"]:checked`);
+        if(!marcado){ fb.innerHTML = '<span class="bad">Selecione uma alternativa.</span>'; return; }
+        ok = Number(marcado.value) === q.resp;
+      } else {
+        const val = normalizarTexto($(`#q${i}_ab`).value);
+        ok = (val === normalizarTexto(q.ans));
+      }
+      if(ok){ fb.innerHTML = '<span class="good">✔ Correto!</span>'; ans.style.display='none'; }
+      else { fb.innerHTML = '<span class="bad">✘ Resposta incorreta.</span>'; ans.style.display='inline'; ans.textContent = `Gabarito: ${q.tipo==='mc'? q.op[q.resp] : q.ans}`; }
+    }
+
+    function mostrarGabarito(i){
+      const q = Questoes[i];
+      const ans = $(`#ans${i}`);
+      ans.style.display='inline';
+      ans.textContent = `Gabarito: ${q.tipo==='mc'? q.op[q.resp] : q.ans}`;
+    }
+
+    function verificarTudo(){
+      for(let i=0;i<Questoes.length;i++){ verificar(i); }
+    }
+    function mostrarGabaritos(){
+      for(let i=0;i<Questoes.length;i++){ mostrarGabarito(i); }
+    }
+    function resetQuestoes(){
+      document.querySelectorAll('#listaQuestoes input[type="radio"]').forEach(r=> r.checked=false);
+      document.querySelectorAll('#listaQuestoes input[type="text"]').forEach(t=> t.value='');
+      document.querySelectorAll('.feedback').forEach(f=> f.textContent='');
+      document.querySelectorAll('.answer').forEach(a=> {a.textContent=''; a.style.display='none';});
+    }
+
+    // Inicialização
+    montarTabela();
+    desenharGrade();
+    montarQuestoes();
+  </script>
 </body>
 </html>
